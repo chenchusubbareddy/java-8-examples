@@ -28,7 +28,7 @@ public class Example1 {
 			System.out.println(e1.get());
 
 		OptionalInt max = employeeList.stream().mapToInt(Employee::getAge).max();
-
+		
 		if (max.isPresent())
 			System.out.println("Maximum age of Employee: " + max.getAsInt());
 
