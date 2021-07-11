@@ -1,8 +1,6 @@
 package com.chenchu.java8example;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Hello world!
@@ -34,9 +32,9 @@ public class App {
 				j = -1;
 			}
 		}
-		List<Integer> integerList2 = Arrays.stream(arr).boxed().collect(Collectors.toList());
+	
 
-		System.out.println(integerList2);
+		System.out.println(Arrays.toString(arr));
 	}
 
 }
