@@ -5,14 +5,24 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.OptionalDouble;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamsExample {
 	public static void main(String[] args) {
+		String s = "she sells sea shells";
+		String regex = "SsS";
+		String replace = "X";
+		Matcher matcher = Pattern.compile(regex).matcher(s);
+		System.out.println(matcher.replaceAll(replace));
+		System.exit(0);
+
 		List<String> fruits = Arrays.asList("apple", "apple", "banana", "apple", "orange", "banana", "papaya");
 		// wordcount
 		Map<String, Long> result = fruits.stream()
@@ -62,9 +72,9 @@ public class StreamsExample {
 		List<Integer> listWithDuplicates = Arrays.asList(1, 3, 45, 56);
 
 		Set<Integer> setWithoutDups = listWithDuplicates.stream().collect(Collectors.toSet());
-		//distinct
+		// distinct
 		List<Integer> listWithoutDups = listWithDuplicates.stream().distinct().collect(Collectors.toList());
-		
+
 		// Average
 		Integer[] arr1 = new Integer[] { 100, 24, 13, 44, 114, 200, 40, 112 };
 		List<Integer> list = Arrays.asList(arr1);
@@ -73,26 +83,15 @@ public class StreamsExample {
 		// filter
 		List<Employee> employeeList = MyStreamUtil.createEmployeeList();
 		long count = employeeList.stream().filter(e -> e.getAge() > 25).count();
-		
-		// min 
-		Integer minNumber = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9)
-                .min(Comparator.comparing(Integer::valueOf))
-                .get();
-		Employee minObject = employeeList.stream().min(Comparator.comparing( Employee::getAge )).get();
 
-		//max
-		Integer maxNumber = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9)
-                .max(Comparator.comparing(Integer::valueOf))
-                .get();
-		Employee maxObject = employeeList.stream().max( Comparator.comparing( Employee::getAge )).get();
-		 
-		
-	
-		
+		// min
+		Integer minNumber = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9).min(Comparator.comparing(Integer::valueOf)).get();
+		Employee minObject = employeeList.stream().min(Comparator.comparing(Employee::getAge)).get();
+
+		// max
+		Integer maxNumber = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9).max(Comparator.comparing(Integer::valueOf)).get();
+		Employee maxObject = employeeList.stream().max(Comparator.comparing(Employee::getAge)).get();
 
 	}
 
-
-
-	
 }
