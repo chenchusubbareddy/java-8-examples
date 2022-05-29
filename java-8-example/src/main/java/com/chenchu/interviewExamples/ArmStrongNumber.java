@@ -18,5 +18,4 @@ public class ArmStrongNumber {
 			System.out.println("not arm strong number:" + numTemp);
 		}
 	}
-
 }

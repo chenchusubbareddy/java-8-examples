@@ -1,5 +1,7 @@
 package com.chenchu.interviewExamples;
 
+import java.util.List;
+
 public class StrongNumber {
 
 	public static void main(String[] args) {
@@ -21,7 +23,6 @@ public class StrongNumber {
 		}else {
 			System.out.println("the number " + dupNum + " is not strong number");
 		}
-
 	}
 
 	public static int getfactorialOfNumber(int digit) {

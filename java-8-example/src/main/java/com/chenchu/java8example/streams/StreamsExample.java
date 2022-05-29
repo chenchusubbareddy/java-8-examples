@@ -21,7 +21,7 @@ public class StreamsExample {
 		String replace = "X";
 		Matcher matcher = Pattern.compile(regex).matcher(s);
 		System.out.println(matcher.replaceAll(replace));
-		System.exit(0);
+		//System.exit(0);
 
 		List<String> fruits = Arrays.asList("apple", "apple", "banana", "apple", "orange", "banana", "papaya");
 		// wordcount
@@ -65,6 +65,7 @@ public class StreamsExample {
 		List<Student> sortedStudentsList1 = studentsList.stream()
 				.sorted(Comparator.comparing(Student::getName).thenComparing(Student::getAge))
 				.collect(Collectors.toList());
+		//id name 
 
 		System.out.println(sortedStudentsList1);
 
