@@ -1,6 +1,9 @@
 package com.chenchu.oops.overriding;
 
- class Parent {
+import java.util.ArrayList;
+import java.util.List;
+
+class Parent {
 	public void property() {
 		System.out.println("cash+land+gold");
 	}

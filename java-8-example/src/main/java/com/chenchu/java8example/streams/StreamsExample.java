@@ -2,10 +2,10 @@ package com.chenchu.java8example.streams;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.OptionalDouble;
 import java.util.Set;
 import java.util.function.Function;
@@ -21,8 +21,7 @@ public class StreamsExample {
 		String replace = "X";
 		Matcher matcher = Pattern.compile(regex).matcher(s);
 		System.out.println(matcher.replaceAll(replace));
-		//System.exit(0);
-
+		
 		List<String> fruits = Arrays.asList("apple", "apple", "banana", "apple", "orange", "banana", "papaya");
 		// wordcount
 		Map<String, Long> result = fruits.stream()
@@ -92,7 +91,9 @@ public class StreamsExample {
 		// max
 		Integer maxNumber = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9).max(Comparator.comparing(Integer::valueOf)).get();
 		Employee maxObject = employeeList.stream().max(Comparator.comparing(Employee::getAge)).get();
-
+       //Duplicate Elements
+		Set<Integer> duplicates = list.stream().filter(i -> Collections.frequency(list, i) > 1)
+        .collect(Collectors.toSet());
 	}
 
 }
