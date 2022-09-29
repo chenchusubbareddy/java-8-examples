@@ -1,5 +1,7 @@
 package com.chenchu.interviewExamples;
 
+import java.util.ArrayList;
+
 public class SecondHigestNumber {
 	public static void main(String[] args) {
 

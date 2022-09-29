@@ -19,7 +19,6 @@ public class NumberReverse {
 //		String[] arr=str.split(" ");
 //		System.out.println(arr.length);
 //		
-
 		for (int i = 1; i <= 100; i++) {
 			isprime(i);
 		}

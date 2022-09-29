@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.Set;
 import java.util.function.Function;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamsExample {
+	
 	public static void main(String[] args) {
 		String s = "she sells sea shells";
 		String regex = "SsS";
@@ -23,10 +25,12 @@ public class StreamsExample {
 		System.out.println(matcher.replaceAll(replace));
 		
 		List<String> fruits = Arrays.asList("apple", "apple", "banana", "apple", "orange", "banana", "papaya");
+		
 		// wordcount
 		Map<String, Long> result = fruits.stream()
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 		System.out.println(result);
+		
 
 		List<Item> items = Arrays.asList(new Item("apple", 10, new BigDecimal("9.99")),
 				new Item("banana", 20, new BigDecimal("19.99")), new Item("orang", 10, new BigDecimal("29.99")),
@@ -65,7 +69,6 @@ public class StreamsExample {
 				.sorted(Comparator.comparing(Student::getName).thenComparing(Student::getAge))
 				.collect(Collectors.toList());
 		//id name 
-
 		System.out.println(sortedStudentsList1);
 
 		// List to Set
