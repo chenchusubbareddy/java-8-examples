@@ -6,8 +6,6 @@ public class PrintNumberWithoutLoop {
 			System.out.println(n);
 			m1(n + 1);
 
-		} else {
-			return;
 		}
 	}
 
