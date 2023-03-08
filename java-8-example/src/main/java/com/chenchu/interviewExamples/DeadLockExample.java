@@ -10,7 +10,6 @@ class AClass {
 		System.out.println("Thread1 trying to call b.last()");
 		b.last();
 	}
-
 	public synchronized void last() {
 		System.out.println("inside A, this is last()method");
 	}
@@ -40,6 +39,8 @@ public class DeadLockExample implements Runnable {
 	DeadLockExample() {
 		Thread t = new Thread(this);
 		t.start();
+		
+		
 		a.foo(b);// main thread
 	}
 

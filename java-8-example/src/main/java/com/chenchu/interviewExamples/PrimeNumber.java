@@ -1,7 +1,5 @@
 package com.chenchu.interviewExamples;
 
-import java.util.Map;
-
 public class PrimeNumber {
 
 	public static void main(String[] args) {

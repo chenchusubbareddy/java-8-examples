@@ -22,6 +22,5 @@ public class FactorialOfNumber {
 			factorial = factorial * i;
 		}
 		return factorial;
-
 	}
 }
