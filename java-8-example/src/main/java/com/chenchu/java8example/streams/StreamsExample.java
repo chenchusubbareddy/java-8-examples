@@ -4,10 +4,10 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.Set;
 import java.util.function.Function;
@@ -17,21 +17,20 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamsExample {
-	
+
 	public static void main(String[] args) {
 		String s = "she sells sea shells";
 		String regex = "SsS";
 		String replace = "X";
 		Matcher matcher = Pattern.compile(regex).matcher(s);
 		System.out.println(matcher.replaceAll(replace));
-		
+
 		List<String> fruits = Arrays.asList("apple", "apple", "banana", "apple", "orange", "banana", "papaya");
 		
 		// wordcount
 		Map<String, Long> result = fruits.stream()
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 		System.out.println(result);
-		
 
 		List<Item> items = Arrays.asList(new Item("apple", 10, new BigDecimal("9.99")),
 				new Item("banana", 20, new BigDecimal("19.99")), new Item("orang", 10, new BigDecimal("29.99")),
@@ -69,7 +68,28 @@ public class StreamsExample {
 		List<Student> sortedStudentsList1 = studentsList.stream()
 				.sorted(Comparator.comparing(Student::getName).thenComparing(Student::getAge))
 				.collect(Collectors.toList());
-		//id name 
+		// SortByValue
+		Map<String, Integer> unsortMap = new HashMap<>();
+		unsortMap.put("z", 10);
+		unsortMap.put("b", 5);
+		unsortMap.put("a", 6);
+		unsortMap.put("c", 20);
+		unsortMap.put("d", 1);
+		unsortMap.put("e", 7);
+		unsortMap.put("y", 8);
+		unsortMap.put("n", 99);
+		unsortMap.put("g", 50);
+		unsortMap.put("m", 2);
+		unsortMap.put("f", 9);
+		Map<String, Integer> sortedbyValue = unsortMap.entrySet().stream().sorted(Map.Entry.comparingByKey())
+				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue,
+						LinkedHashMap::new));
+		// SortByKey
+		Map<String, Integer> sortedbykey = unsortMap.entrySet().stream().sorted(Map.Entry.comparingByKey())
+				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue,
+						LinkedHashMap::new));
+
+		// id name
 		System.out.println(sortedStudentsList1);
 
 		// List to Set
@@ -95,10 +115,10 @@ public class StreamsExample {
 		// max
 		Integer maxNumber = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9).max(Comparator.comparing(Integer::valueOf)).get();
 		Employee maxObject = employeeList.stream().max(Comparator.comparing(Employee::getAge)).get();
-       //Duplicate Elements
-		
+		// Duplicate Elements
+
 		Set<Integer> duplicates = list.stream().filter(i -> Collections.frequency(list, i) > 1)
-        .collect(Collectors.toSet());
+				.collect(Collectors.toSet());
 	}
 
 }

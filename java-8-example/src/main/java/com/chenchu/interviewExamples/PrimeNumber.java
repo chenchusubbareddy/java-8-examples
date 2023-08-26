@@ -1,10 +1,13 @@
 package com.chenchu.interviewExamples;
 
+import java.util.List;
+
 public class PrimeNumber {
 
 	public static void main(String[] args) {
 		printPrimeUpto(10);
 		checkIsPime(7);
+		int[] arr=null;
 	}
 
 	public static void printPrimeUpto(int upto) {
@@ -23,7 +26,7 @@ public class PrimeNumber {
 
 	public static void checkIsPime(int num) {
 		boolean isPrime = true;
-		for (int i = 2; i <= num/2; i++) {
+		for (int i = 2; i <= num / 2; i++) {
 			if (num % i == 0) {
 				isPrime = false;
 				System.out.println(num + " is not prime number");

@@ -20,6 +20,7 @@ public class PalandromeEx {
 		System.out.println(num);
 
 		long temp = num;
+		
 		long sum = 0;
 		while (num > 0) {
 			long rem = num % 10; // getting remainder
